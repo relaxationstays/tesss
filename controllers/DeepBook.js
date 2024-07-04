@@ -1,4 +1,6 @@
 import DeepCleaningReportSchema from "../models/DeepCleaningBookings.js";
+import nodemailer from "nodemailer"; // Added nodemailer import
+
 // import HomeServiceHours from "../models/arrayhomeservice.js";
 // Controller functions
 export const DeepBookread = async (req, res, next) => {
@@ -45,7 +47,7 @@ export const DeepBookpost = async (req, res, next) => {
 
     const mailOptions = {
       from: "noreply@flightrix.com",
-      to: req.body.Email,
+      to: req.body.Userid,
       subject: "Book Confirmed",
       text: `Follow link to manage .\n\n\n\n\n\nhttp://localhost:3000/Service/Deepcleaning?manage`,
     };
