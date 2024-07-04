@@ -43,12 +43,13 @@ export const DeepBookpost = async (req, res, next) => {
     const data = req.body;
     const deepCleaningBook = new DeepCleaningReportSchema(data);
     const savedDeep = await deepCleaningBook.save();
-
     const mailOptions = {
       from: "noreply@smartboxcleaningservices.com",
       to: req.body.Userid,
       subject: "Book Confirmed",
-      text: `Follow link to manage .\n\n\n\n\n\nhttp://localhost:3000/Service/Deepcleaning?manage`,
+      text: `
+
+      Thank you for booking your service with us!\nYour reference number is ${savedDeep._id}. This will allow you to manage your booking and explore additional services we offer. \nWe're here to assist you every step of the way to ensure a smooth and enjoyable experience.`,
     };
     transporter.sendMail(mailOptions, (error, info) => {
       if (error) {
