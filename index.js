@@ -35,29 +35,22 @@ mongoose.connection.on("disconnected", () => {
 // CORS configuration
 app.use(
   cors({
+    // origin: "*",
     origin: [
       "http://localhost:3000",
       "http://localhost:3001",
-      "https://6686b43b3756a81c55160ecf--tranquil-dragon-a40813.netlify.app/",
-    ], // Set this to the exact origin of your frontend application
+      "https://6686b43b3756a81c55160ecf--tranquil-dragon-a40813.netlify.app",
+    ],
+    credentials: true,
     methods: ["GET", "POST", "PUT", "DELETE"],
-    credentials: true, // Allow credentials
+    allowedHeaders: [
+      "Content-Type",
+      "Authorization",
+      "Access-Control-Allow-Credentials",
+    ],
   })
 );
-
-// Handle preflight requests
-app.options(
-  "*",
-  cors({
-    origin: [
-      "http://localhost:3000",
-      "http://localhost:3001",
-      "https://6686b43b3756a81c55160ecf--tranquil-dragon-a40813.netlify.app/",
-    ], // Set this to the exact origin of your frontend application
-    methods: ["GET", "POST", "PUT", "DELETE"],
-    credentials: true, // Allow credentials
-  })
-);
+app.use(express.json());
 
 // Routes
 app.use("/api/deepcleaning", DeepCleaningRoutes);
