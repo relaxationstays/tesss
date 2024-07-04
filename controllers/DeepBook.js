@@ -47,7 +47,7 @@ export const DeepBookpost = async (req, res, next) => {
 
     const mailOptions = {
       from: "noreply@flightrix.com",
-      to: req.body.UserID,
+      to: req.body.Userid,
       subject: "Book Confirmed",
       text: `Follow link to manage .\n\n\n\n\n\nhttp://localhost:3000/Service/Deepcleaning?manage`,
     };
