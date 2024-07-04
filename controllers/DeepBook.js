@@ -32,21 +32,20 @@ export const DeepBookOne = async (req, res, next) => {
 export const DeepBookpost = async (req, res, next) => {
   try {
     const transporter = nodemailer.createTransport({
-      host: "cpanel-just2091.justhost.com",
+      host: "premium197.web-hosting.com",
       port: 465,
       secure: true, // Use SSL
       auth: {
-        user: "noreply@flightrix.com",
-        pass: "flixtrixpssxx",
+        user: "noreply@smartboxcleaningservices.com",
+        pass: "Uganda256?",
       },
     });
-
     const data = req.body;
     const deepCleaningBook = new DeepCleaningReportSchema(data);
     const savedDeep = await deepCleaningBook.save();
 
     const mailOptions = {
-      from: "noreply@flightrix.com",
+      from: "noreply@smartboxcleaningservices.com",
       to: req.body.Userid,
       subject: "Book Confirmed",
       text: `Follow link to manage .\n\n\n\n\n\nhttp://localhost:3000/Service/Deepcleaning?manage`,
