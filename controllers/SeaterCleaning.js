@@ -1,5 +1,7 @@
 import SeaterCleaning from "../models/SeaterBookings.js";
 // import HomeServiceHours from "../models/arrayhomeservice.js";
+import nodemailer from "nodemailer"; // Make sure nodemailer is properly installed
+
 // Controller functions
 export const Seaterread = async (req, res, next) => {
   try {
