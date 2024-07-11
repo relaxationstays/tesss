@@ -7,7 +7,10 @@ import dotenv from "dotenv";
 
 // Import your routes
 import DeepCleaningRoutes from "./routes/DeepCleaning.js";
+import SeaterRoutes from "./routes/SeaterCleaning.js";
 import DeepCleaningBook from "./routes/DeepBook.js";
+import AcRoutes from "./routes/AcCleaning.js";
+import HomeCleaningBook from "./routes/HomeCleaning.js";
 
 // Initialize Express app
 const app = express();
@@ -54,7 +57,10 @@ app.use(express.json());
 
 // Routes
 app.use("/api/deepcleaning", DeepCleaningRoutes);
+app.use("/api/seaatercleaning", SeaterRoutes);
+app.use("/api/ac", AcRoutes);
 app.use("/api/deepBook", DeepCleaningBook);
+app.use("/api/homeBook", HomeCleaningBook);
 
 // Start server
 const PORT = process.env.PORT || 8801;
