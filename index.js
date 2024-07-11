@@ -43,6 +43,7 @@ app.use(
       "http://localhost:3000",
       "http://localhost:3001",
       "https://6686b43b3756a81c55160ecf--tranquil-dragon-a40813.netlify.app",
+      "https://fancy-pastelito-8e36ec.netlify.app",
     ],
     credentials: true,
     methods: ["GET", "POST", "PUT", "DELETE"],
