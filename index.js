@@ -11,10 +11,8 @@ import SeaterRoutes from "./routes/SeaterCleaning.js";
 import DeepCleaningBook from "./routes/DeepBook.js";
 import AcRoutes from "./routes/AcCleaning.js";
 import HomeCleaningBook from "./routes/HomeCleaning.js";
-
 // Initialize Express app
 const app = express();
-
 // Middleware
 app.use(bodyParser.json());
 app.use(cookieParser());
