@@ -1,4 +1,5 @@
 import SeaterCleaning from "../models/SeaterBookings.js";
+import CarpetPdtSchema from "../models/Capettab .js";
 // import HomeServiceHours from "../models/arrayhomeservice.js";
 import nodemailer from "nodemailer"; // Make sure nodemailer is properly installed
 
@@ -7,6 +8,32 @@ export const Seaterread = async (req, res, next) => {
   try {
     const Seaterclng = await SeaterCleaning.find();
     res.json(Seaterclng);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+};
+export const Seater_read = async (req, res, next) => {
+  try {
+    const Seaterclng = await CarpetPdtSchema.find();
+    res.json(Seaterclng);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+};
+
+
+export const SeaterOne = async (req, res, next) => {
+  try {
+    const { id } = req.params; // Assuming the ID is passed as a parameter in the request
+
+    // Find the document by ID
+    const deepclng = await SeaterCleaning.findById(id);
+
+    if (!deepclng) {
+      return res.status(404).json({ error: "Document not found" });
+    }
+
+    res.json(deepclng);
   } catch (error) {
     res.status(500).json({ error: error.message });
   }
@@ -32,7 +59,7 @@ export const Seaterpost = async (req, res, next) => {
       subject: "Book Confirmed",
       text: `
 
-      Thank you for booking your service with us!\nYour reference number is ${savedDeep._id}. This will allow you to manage your booking and explore additional services we offer. \nWe're here to assist you every step of the way to ensure a smooth and enjoyable experience.`,
+      Thank you for booking your service with us!\nYour reference number is ${savedSeater._id}. This will allow you to manage your booking and explore additional services we offer. \nWe're here to assist you every step of the way to ensure a smooth and enjoyable experience.`,
     };
     transporter.sendMail(mailOptions, (error, info) => {
       if (error) {
@@ -41,6 +68,16 @@ export const Seaterpost = async (req, res, next) => {
       }
       console.log("Email sent: ", info.response);
     });
+    res.status(201).json(savedSeater);
+  } catch (error) {
+    res.status(400).json({ error: error.message });
+  }
+};
+export const Seater_post = async (req, res, next) => {
+  try {
+    const data = req.body;
+    const SeaterCleaningx = new CarpetPdtSchema(data);
+    const savedSeater = await SeaterCleaningx.save();
     res.status(201).json(savedSeater);
   } catch (error) {
     res.status(400).json({ error: error.message });
