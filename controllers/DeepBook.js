@@ -15,7 +15,6 @@ export const DeepBookread = async (req, res, next) => {
 export const DeepBookOne = async (req, res, next) => {
   try {
     const { id } = req.params; // Assuming the ID is passed as a parameter in the request
-
     // Find the document by ID
     const deepclng = await DeepCleaningReportSchema.findById(id);
 
@@ -48,8 +47,8 @@ export const DeepBookpost = async (req, res, next) => {
       to: req.body.Userid,
       subject: "Book Confirmed",
       text: `
-
-      Thank you for booking your service with us!\nYour reference number is ${savedDeep._id}. This will allow you to manage your booking and explore additional services we offer. \nWe're here to assist you every step of the way to ensure a smooth and enjoyable experience.`,
+      Thank you for booking your service with us!\nYour reference number is ${savedDeep._id}. This will allow you to manage your booking 
+      and explore additional services we offer. \nWe're here to assist you every step of the way to ensure a smooth and enjoyable experience.`,
     };
     transporter.sendMail(mailOptions, (error, info) => {
       if (error) {

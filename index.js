@@ -11,6 +11,10 @@ import SeaterRoutes from "./routes/SeaterCleaning.js";
 import DeepCleaningBook from "./routes/DeepBook.js";
 import AcRoutes from "./routes/AcCleaning.js";
 import HomeCleaningBook from "./routes/HomeCleaning.js";
+import WashAndFold from "./routes/WashAndFold.js";
+import drycleaning from "./routes/DryCleaning.js";
+import ironing from "./routes/Ironing.js";
+import carpetbooking from "./routes/carpetbooking.js";
 // Initialize Express app
 const app = express();
 // Middleware
@@ -60,6 +64,12 @@ app.use("/api/seaatercleaning", SeaterRoutes);
 app.use("/api/ac", AcRoutes);
 app.use("/api/deepBook", DeepCleaningBook);
 app.use("/api/homeBook", HomeCleaningBook);
+app.use("/api/washandfold", WashAndFold);
+app.use("/api/ironing", ironing);
+app.use("/api/drycleaning", drycleaning);
+app.use("/api/carpetbooking", carpetbooking);
+
+// CarpetBookingSchema
 
 // Start server
 const PORT = process.env.PORT || 8801;

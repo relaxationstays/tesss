@@ -25,14 +25,11 @@ export const Seater_read = async (req, res, next) => {
 export const SeaterOne = async (req, res, next) => {
   try {
     const { id } = req.params; // Assuming the ID is passed as a parameter in the request
-
     // Find the document by ID
     const deepclng = await SeaterCleaning.findById(id);
-
     if (!deepclng) {
       return res.status(404).json({ error: "Document not found" });
     }
-
     res.json(deepclng);
   } catch (error) {
     res.status(500).json({ error: error.message });

@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-const CarpetPdtSchema = new mongoose.Schema(
+const DryCleaningPdtSchema = new mongoose.Schema(
   {
     Name: {
       type: String,
@@ -15,4 +15,4 @@ const CarpetPdtSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
-export default mongoose.model("CarpetPdtSchema", CarpetPdtSchema);
+export default mongoose.model("DryCleaningPdtSchema", DryCleaningPdtSchema);
